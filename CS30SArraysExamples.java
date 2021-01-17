@@ -7,13 +7,13 @@ import java.text.NumberFormat;
  *  Name:           Sveinson
  *  Class:          CS30S
  * 
- *  Assignment:     Ax Qy
+ *  Assignment:     some array examples
  * 
- *  Description:    Place a short description of your program here
+ *  Description:    looking at the basic array funtions
  * 
  *************************************************************/
 
-public class FormatTemplateV3 {
+public class CS30SArraysExamples {
 
     public static void main(String[] args) throws IOException{
     // ***** constants *******
