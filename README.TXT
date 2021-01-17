@@ -10,3 +10,4 @@ VERSION or DATE:
 HOW TO START THIS PROJECT:
 AUTHORS:
 USER INSTRUCTIONS:
+Im changeing the readmt.txt file to see how to update from bluej
