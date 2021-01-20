@@ -13,7 +13,7 @@ import java.text.NumberFormat;
  * 
  *************************************************************/
 
-public class CS30SArraysExamples {
+public class FormatTemplateV3 {
 
     public static void main(String[] args) throws IOException{
     // ***** constants *******
@@ -31,15 +31,10 @@ public class CS30SArraysExamples {
         
         // a new line character that works on every computer system
         String nl = System.lineSeparator();
-        
-        int[] list = new int[10];   // declare and allocate an array of 10 ints
-        int n = 0;                  // control variable for input loop
-        int count = 0;              // input counter
-        //System.out.println(list[10]);
     
     // ***** objects *****
     
-        Scanner scanner = new Scanner(System.in);
+        //Scanner scanner = new Scanner(System.in);
         //NumberFormat currency = NumberFormat.getCurrencyInstance();
         
         // file io buffers for reading and writing to text files
@@ -52,39 +47,19 @@ public class CS30SArraysExamples {
         banner = "*****************************" + nl;
         banner += "Name:        Sveinson" + nl;
         banner += "Class:       CS30S" + nl;
-        banner += "Assignment:  Array Examples" + nl;
+        banner += "Assignment:  Ax Qy" + nl;
         banner += "*****************************" + nl + nl;
         
         System.out.println(banner);
         //fout.print(banner);
     
     // ***** Get Input *****
-    // pre loop processing
-    count = 0;
     
-    // load the array
-    prompt = "enter up to 10 numbers. enter -1 to stop";
-    System.out.println(prompt);
-    
-    n = scanner.nextInt();
-    
-    while(n != -1 && count < 10){
-        System.out.println(n);
-        list[count] = n;
-        count++;
-        
-        // update the loop
-        n = scanner.nextInt();
-    }// end while
+        // prompt for input
+        // read input from keyboard
+        // echo input back to console window
     
     // ***** Main Processing *****
-    
-    // basic structure of array computation
-    for(int i = 0; i < 10; i++){
-        // array computation stuff goes here
-        System.out.println(i + ": " + list[i]);
-    }//end for
-        
     
     // ***** Print Formatted Output *****
     

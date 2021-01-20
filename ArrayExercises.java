@@ -7,17 +7,19 @@ import java.text.NumberFormat;
  *  Name:           Sveinson
  *  Class:          CS30S
  * 
- *  Assignment:     some array examples
+ *  Assignment:     Array Exercises
  * 
- *  Description:    looking at the basic array funtions
+ *  Description:    basic array operations
  * 
  *************************************************************/
 
-public class CS30SArraysExamples {
+public class ArrayExercises {
 
     public static void main(String[] args) throws IOException{
     // ***** constants *******
     
+        final int MAX = 20;         // set the maximum size of the array to 20
+        
     // ***** variables *****
     
         String banner = "";             // output banner
@@ -32,11 +34,12 @@ public class CS30SArraysExamples {
         // a new line character that works on every computer system
         String nl = System.lineSeparator();
         
-        int[] list = new int[10];   // declare and allocate an array of 10 ints
-        int n = 0;                  // control variable for input loop
-        int count = 0;              // input counter
-        //System.out.println(list[10]);
-    
+        // *** array exercise variables
+        
+        int[] list = new int[MAX];      // declare and allocate an int array of max size 20
+        int n = 0;                      // get the actual size from the keyboard
+        int np = 0;                     // number to print
+        
     // ***** objects *****
     
         Scanner scanner = new Scanner(System.in);
@@ -52,40 +55,52 @@ public class CS30SArraysExamples {
         banner = "*****************************" + nl;
         banner += "Name:        Sveinson" + nl;
         banner += "Class:       CS30S" + nl;
-        banner += "Assignment:  Array Examples" + nl;
+        banner += "Assignment:  Array Exercises" + nl;
         banner += "*****************************" + nl + nl;
         
         System.out.println(banner);
         //fout.print(banner);
     
     // ***** Get Input *****
-    // pre loop processing
-    count = 0;
     
-    // load the array
-    prompt = "enter up to 10 numbers. enter -1 to stop";
-    System.out.println(prompt);
-    
-    n = scanner.nextInt();
-    
-    while(n != -1 && count < 10){
-        System.out.println(n);
-        list[count] = n;
-        count++;
-        
-        // update the loop
-        n = scanner.nextInt();
-    }// end while
+        // prompt for input
+        // read input from keyboard
+        // echo input back to console window
     
     // ***** Main Processing *****
     
-    // basic structure of array computation
-    for(int i = 0; i < 10; i++){
-        // array computation stuff goes here
-        System.out.println(i + ": " + list[i]);
-    }//end for
+    // *** Q1 ***
+        // load 5 numbers into the array
+        // for(int i = 0; i < 5; i++){
+            // System.out.println("enter number " + (i + 1));
+            // list[i] = scanner.nextInt();
+        // }// end for loop to load array
         
+        // print the array
+        // for(int i = 0; i < 5; i++)
+            // System.out.println((i + 1) + ": " + list[i]);
+            
+        // for(int i = MAX - 1; i >= 0; i--)
+            // System.out.println(i);
+            
+        // *** Q2 ***
+        System.out.println("how many numbers do you want to enter?");
+        n = scanner.nextInt();
+        
+        for(int i = 0; i < n; i++){
+            System.out.println("Enter number " + (i + 1) + ".");
+            list[i] = scanner.nextInt();
+        }
     
+        // print the array
+        for(int i = 0; i < n; i++)
+            System.out.println((i + 1) + ": " + list[i]);
+            
+        // *** Q3 ***&
+        System.out.println("which number would you like to print?");
+        np = scanner.nextInt();
+        System.out.println(list[np - 1]);
+            
     // ***** Print Formatted Output *****
     
     // ***** Closing Message *****
