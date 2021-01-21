@@ -97,9 +97,16 @@ public class ArrayExercises {
             System.out.println((i + 1) + ": " + list[i]);
             
         // *** Q3 ***&
-        System.out.println("which number would you like to print?");
+        System.out.println("which number would you like to print? -1 to quit");
         np = scanner.nextInt();
-        System.out.println(list[np - 1]);
+        
+        while(np != -1){
+            System.out.println(list[np - 1]);
+            
+            // update the loop
+            System.out.println("which number would you like to print? -1 to quit");
+            np = scanner.nextInt();        
+        }
             
     // ***** Print Formatted Output *****
     
