@@ -87,7 +87,8 @@ public class LoadArrayFromSentinalLoop {
             
             // update loop
             strin = fin.readLine();
-            list[n] = Integer.parseInt(strin);
+            if(strin != null)
+                list[n] = Integer.parseInt(strin);
         }//end eof loop
     
         // sum the elements of the array
