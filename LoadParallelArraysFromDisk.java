@@ -7,16 +7,18 @@ import java.text.NumberFormat;
  *  Name:           Sveinson
  *  Class:          CS30S
  * 
- *  Assignment:     Ax Qy
+ *  Assignment:     array load from disk part 1
  * 
- *  Description:    Place a short description of your program here
+ *  Description:    load parallel arrays from a data file
  * 
  *************************************************************/
 
-public class FormatTemplateV3 {
+public class LoadParallelArraysFromDisk {
 
     public static void main(String[] args) throws IOException{
     // ***** constants *******
+    
+        final int MAX = 100;        // array max size
     
     // ***** variables *****
     
@@ -29,8 +31,17 @@ public class FormatTemplateV3 {
         String delim = "[ ]+";          // delimiter for splitting input records
         String[] tokens = null;         // used to split input records
         
+        BufferedReader fin = null;      // input buffer
+        
         // a new line character that works on every computer system
         String nl = System.lineSeparator();
+        
+        int n = 0;                      // actual size of arrays3
+        
+        // declare and allocate parallel arrays
+        String[] names = new String[MAX];
+        int[] list = new int[MAX];      
+        double[] x = new double[MAX];
     
     // ***** objects *****
     
@@ -39,7 +50,13 @@ public class FormatTemplateV3 {
         
         // file io buffers for reading and writing to text files
         
-        //BufferedReader fin = new BufferedReader(new FileReader("filename.txt"));
+        try{
+            fin = new BufferedReader(new FileReader("recordData.txt"));
+        }// end try
+        catch(FileNotFoundException e){
+            System.out.println("file not found");
+            fin = null;
+        }// end catch
         //PrintWriter fout = new PrintWriter(new BufferedWriter(new FileWriter("outfle.txt")));
     
     // ***** print banners *****
@@ -47,21 +64,43 @@ public class FormatTemplateV3 {
         banner = "*****************************" + nl;
         banner += "Name:        Sveinson" + nl;
         banner += "Class:       CS30S" + nl;
-        banner += "Assignment:  Ax Qy" + nl;
+        banner += "Assignment:  Load Parallel Arrays" + nl;
         banner += "*****************************" + nl + nl;
         
         System.out.println(banner);
         //fout.print(banner);
     
     // ***** Get Input *****
-    
-        // prompt for input
-        // read input from keyboard
-        // echo input back to console window
-    
+
     // ***** Main Processing *****
     
+        //pre-loop processing 
+        n = 0;              // start indexing at 0
+        
+        strin = fin.readLine();
+        
+        while(strin != null){
+            //System.out.println(strin);
+            
+            tokens = strin.split(delim);
+            
+            names[n] = tokens[0];
+            list[n] = Integer.parseInt(tokens[1]);
+            x[n] = Double.parseDouble(tokens[2]);
+            n++;                    // increment record counter
+            
+            // update the loop
+            strin = fin.readLine();
+        }// end eod
+    
     // ***** Print Formatted Output *****
+    
+        for(int i = 0; i < n; i++){
+            System.out.print(names[i] + "\t");
+            System.out.print(list[i] + ", ");
+            System.out.print(x[i] + nl);
+
+        }//end for
     
     // ***** Closing Message *****
     

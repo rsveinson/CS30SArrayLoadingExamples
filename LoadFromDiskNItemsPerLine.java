@@ -7,16 +7,19 @@ import java.text.NumberFormat;
  *  Name:           Sveinson
  *  Class:          CS30S
  * 
- *  Assignment:     Ax Qy
+ *  Assignment:     array load from disk part 1
  * 
- *  Description:    Place a short description of your program here
+ *  Description:    load an array from disk data
+ *                  where the data is n items per line
  * 
  *************************************************************/
 
-public class FormatTemplateV3 {
+public class LoadFromDiskNItemsPerLine {
 
     public static void main(String[] args) throws IOException{
     // ***** constants *******
+    
+        final int MAX = 100;        // array max size
     
     // ***** variables *****
     
@@ -29,8 +32,14 @@ public class FormatTemplateV3 {
         String delim = "[ ]+";          // delimiter for splitting input records
         String[] tokens = null;         // used to split input records
         
+        BufferedReader fin = null;      // input buffer
+        
         // a new line character that works on every computer system
         String nl = System.lineSeparator();
+        
+        int n = 0;                      // actual size of array
+        int[] list = new int[MAX];      // declare and allocate array
+        //System.out.println(list);
     
     // ***** objects *****
     
@@ -39,7 +48,13 @@ public class FormatTemplateV3 {
         
         // file io buffers for reading and writing to text files
         
-        //BufferedReader fin = new BufferedReader(new FileReader("filename.txt"));
+        try{
+            fin = new BufferedReader(new FileReader("arrayData.txt"));
+        }// end try
+        catch(FileNotFoundException e){
+            System.out.println("file not found");
+            fin = null;
+        }// end catch
         //PrintWriter fout = new PrintWriter(new BufferedWriter(new FileWriter("outfle.txt")));
     
     // ***** print banners *****
@@ -47,21 +62,42 @@ public class FormatTemplateV3 {
         banner = "*****************************" + nl;
         banner += "Name:        Sveinson" + nl;
         banner += "Class:       CS30S" + nl;
-        banner += "Assignment:  Ax Qy" + nl;
+        banner += "Assignment:  Load Array From Disk Example 2" + nl;
         banner += "*****************************" + nl + nl;
         
         System.out.println(banner);
         //fout.print(banner);
     
     // ***** Get Input *****
-    
-        // prompt for input
-        // read input from keyboard
-        // echo input back to console window
-    
+
     // ***** Main Processing *****
+        
+        strin = fin.readLine();
+        
+        while(strin != null){
+            //System.out.println(strin);
+            
+            tokens = strin.split(delim);
+            //System.out.println(tokens.length);
+            
+            for(int i = 0; i < tokens.length; i++){
+                //System.out.print(tokens[i] + ", ");
+                list[n++] = Integer.parseInt(tokens[i]);
+            }// end for
+            
+            //System.out.println();
+            
+            strin = fin.readLine();
+        }// end eod
     
     // ***** Print Formatted Output *****
+    
+        for(int i = 0; i < n; i++){
+            System.out.print(list[i] + ", ");
+            
+            if(i % 11 == 10)
+                System.out.println();
+        }//end for
     
     // ***** Closing Message *****
     
